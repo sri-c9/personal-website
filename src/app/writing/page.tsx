@@ -3,45 +3,50 @@ import Link from 'next/link';
 import { getAllPosts } from '@/lib/blog';
 
 export const metadata: Metadata = {
-  title: 'Blog - Sri Chandramouli',
-  description: 'Articles and thoughts on software engineering and technology',
+  title: 'Writing — Sri Chandramouli',
+  description: 'Articles and thoughts on software engineering and technology.',
 };
 
-export default function Blog() {
+export default function Writing() {
   const posts = getAllPosts();
 
   return (
-    <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-16">
+    <div className="mx-auto max-w-3xl px-4 sm:px-8 py-16">
       <div className="space-y-12">
-        <h1 className="text-4xl font-bold tracking-tight">Blog</h1>
+        <h1 className="text-3xl font-bold tracking-tight">Writing</h1>
 
         {posts.length === 0 ? (
-          <p style={{ color: 'var(--muted)' }}>No posts yet. Check back soon!</p>
+          <p style={{ color: 'var(--muted)' }}>No posts yet. Check back soon.</p>
         ) : (
-          <div className="space-y-8">
+          <div className="divide-y" style={{ borderColor: 'var(--border)' }}>
             {posts.map((post) => (
-              <article key={post.slug} className="space-y-2">
-                <Link
-                  href={`/writing/${post.slug}`}
-                  className="group block space-y-2"
+              <Link
+                key={post.slug}
+                href={`/writing/${post.slug}`}
+                className="group flex gap-8 py-6 items-start"
+              >
+                <time
+                  className="shrink-0 text-xs font-mono pt-1 w-24"
+                  style={{ color: 'var(--muted)' }}
+                  dateTime={post.date}
                 >
-                  <h2 className="text-2xl font-semibold group-hover:underline">
+                  {new Date(post.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                  })}
+                </time>
+                <div className="space-y-1 min-w-0">
+                  <h2
+                    className="font-semibold leading-snug group-hover:text-[var(--accent)] transition-colors"
+                  >
                     {post.title}
                   </h2>
-                  <time
-                    className="text-sm"
-                    style={{ color: 'var(--muted)' }}
-                    dateTime={post.date}
-                  >
-                    {new Date(post.date).toLocaleDateString('en-US', {
-                      year: 'numeric',
-                      month: 'long',
-                      day: 'numeric',
-                    })}
-                  </time>
-                  <p style={{ color: 'var(--muted)' }}>{post.description}</p>
-                </Link>
-              </article>
+                  <p className="text-sm" style={{ color: 'var(--muted)' }}>
+                    {post.description}
+                  </p>
+                </div>
+              </Link>
             ))}
           </div>
         )}
