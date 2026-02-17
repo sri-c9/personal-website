@@ -11,21 +11,35 @@ const projects: Project[] = [
   {
     name: 'CruiseControl',
     description:
-      'Claude Code-powered SDLC orchestration plugin. 5 skills that orchestrate human-in-the-loop actions, with a local-first markdown-backed memory system to persist state across SDLC stages.',
+      'A Claude Code plugin that orchestrates your entire software dev lifecycle — planning, implementation, review, and ship. Human-in-the-loop where it matters, autonomous everywhere else.',
     tags: ['typescript', 'claude', 'cli'],
     featured: true,
   },
   {
     name: 'Ship CLI',
     description:
-      'Stateful DX orchestration CLI with a confidence-score search algorithm to auto-discover pipelines and persist environment state. Claude-powered Agent Mode for headless troubleshooting. Adopted by 100+ engineers across 3 orgs.',
+      'Internal developer CLI that auto-discovers CI/CD pipelines, persists environment state, and has a Claude-powered agent mode for headless troubleshooting. Used by 100+ engineers across 3 orgs.',
     tags: ['typescript', 'cli', 'claude'],
   },
   {
     name: 'DeepSafe',
     description:
-      'Pitched to Berkeley SkyDeck incubator. Selected from 50+ teams to pitch in a university-wide competition.',
+      'ML safety tooling. Pitched to Berkeley SkyDeck, selected from 50+ teams to pitch in a university-wide competition.',
     tags: ['python', 'ml'],
+  },
+  {
+    name: 'AI Secretary',
+    description:
+      'Talks like me, schedules like a pro. An AI phone agent that handles calls, books appointments, and manages your calendar — built with OpenAI, ElevenLabs, and Twilio.',
+    tags: ['python', 'openai', 'twilio'],
+    github: 'https://github.com/sri-c9/ai-secretary',
+  },
+  {
+    name: 'AI RateMyProf',
+    description:
+      'Smarter professor reviews and summaries. Semantic search over RateMyProfessor data so you can actually find useful signals before picking classes.',
+    tags: ['python', 'openai', 'pinecone'],
+    github: 'https://github.com/sri-c9/ai-rate-my-prof',
   },
 ];
 

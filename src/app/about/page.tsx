@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'About — Sri Chandramouli',
-  description: 'About Sri Chandramouli — software engineer, builder, learner.',
+  description: 'About Sri Chandramouli — software engineer at Apple, MS in AI at UT Austin.',
 };
 
 export default function About() {
@@ -23,13 +23,13 @@ export default function About() {
           <div className="space-y-4 text-[15px] leading-relaxed max-w-xl">
             <p>
               I&apos;m Sri — a software engineer at Apple, where I work on distributed systems,
-              internal tooling, and LLM-powered applications. I studied CS at UC Berkeley
-              and I&apos;m currently doing my MS in AI at UT Austin.
+              internal tooling, and LLM-powered apps. CS undergrad from UC Berkeley, currently
+              wrapping up my MS in AI at UT Austin.
             </p>
             <p>
-              I care about well-crafted developer tools, clear system design, and building
-              things that actually get used. I&apos;m drawn to problems where good software makes
-              a real difference to the people working with it.
+              I like building tools that get out of people&apos;s way — the kind that feel obvious
+              in hindsight. Good system design, clear abstractions, and the occasional
+              slightly over-engineered side project.
             </p>
           </div>
         </section>
@@ -44,9 +44,36 @@ export default function About() {
           </h2>
           <div className="space-y-4 text-[15px] leading-relaxed max-w-xl">
             <p>
-              Building CruiseControl — a Claude Code-powered SDLC orchestration plugin.
-              Finishing my MS in AI at UT Austin. Writing about systems, tools, and
-              things I&apos;m figuring out.
+              Building CruiseControl — a Claude Code plugin that orchestrates the full
+              software dev lifecycle. It&apos;s my attempt to make AI-assisted development
+              actually feel like working with a thoughtful collaborator, not just a
+              very fast autocomplete.
+            </p>
+            <p>
+              Also: finishing my MS thesis, writing occasionally, and finding excuses
+              to tinker with voice AI and agent tooling.
+            </p>
+          </div>
+        </section>
+
+        {/* Outside the Code */}
+        <section className="space-y-4">
+          <h2
+            className="text-xs font-mono tracking-widest uppercase"
+            style={{ color: 'var(--muted)' }}
+          >
+            Outside the Code
+          </h2>
+          <div className="space-y-4 text-[15px] leading-relaxed max-w-xl">
+            <p>
+              I brew pour-over coffee with more precision than most of my side projects deserve.
+              I boulder — badly, but consistently. I play classical flute, mostly for myself,
+              occasionally for unsuspecting roommates.
+            </p>
+            <p>
+              I collect vinyl (jazz, ambient, the occasional guilty pleasure), shoot film
+              photography, play tennis when someone will have me, and lose at chess to
+              people who clearly read openings theory.
             </p>
           </div>
         </section>

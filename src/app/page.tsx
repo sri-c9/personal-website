@@ -13,11 +13,11 @@ export default function Home() {
       {/* Hero */}
       <section className="py-20 space-y-6">
         <h1 className="text-4xl font-bold tracking-tight sm:text-5xl leading-tight">
-          Software engineer,{' '}
-          <span className="gradient-text">builder, and learner.</span>
+          Building things that are smart, fun, and{' '}
+          <span className="gradient-text">slightly over-engineered.</span>
         </h1>
         <p className="text-lg max-w-xl" style={{ color: 'var(--muted)' }}>
-          Software engineer at Apple. MS in AI at UT Austin. I build things, write about what I learn, and occasionally make noise on a flute.
+          Software engineer at Apple, finishing my MS in AI at UT Austin. Currently building developer tools by day and tinkering with AI projects by night — fueled by too much coffee.
         </p>
         <div className="flex items-center gap-6">
           <Link
@@ -124,7 +124,7 @@ export default function Home() {
             <div className="space-y-1">
               <p className="text-xs font-mono" style={{ color: 'var(--muted)' }}>About me</p>
               <p className="text-sm">
-                Software engineer at Apple. MS in AI at UT Austin. I care about good tools, clear thinking, and building things that matter.
+                I like clean tools, clear thinking, and things that are just slightly over-engineered. Also coffee.
               </p>
             </div>
             <Link
