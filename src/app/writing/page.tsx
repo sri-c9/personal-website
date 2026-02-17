@@ -22,7 +22,7 @@ export default function Blog() {
             {posts.map((post) => (
               <article key={post.slug} className="space-y-2">
                 <Link
-                  href={`/blog/${post.slug}`}
+                  href={`/writing/${post.slug}`}
                   className="group block space-y-2"
                 >
                   <h2 className="text-2xl font-semibold group-hover:underline">
