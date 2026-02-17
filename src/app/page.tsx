@@ -1,23 +1,142 @@
-export default function Home() {
-  return (
-    <div className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-16">
-      <div className="space-y-8">
-        <section className="space-y-4">
-          <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">
-            Sri Chandramouli
-          </h1>
-          <p className="text-xl" style={{ color: 'var(--muted)' }}>
-            Software engineer, builder, and learner.
-          </p>
-        </section>
+import Link from 'next/link';
+import { getAllPosts } from '@/lib/blog';
+import { getFeaturedProject } from '@/lib/projects';
+import { Card } from '@/components/card';
 
-        <section className="space-y-4">
-          <p className="text-lg leading-relaxed">
-            Welcome to my corner of the internet. I write about software engineering,
-            technology, and things I'm learning along the way.
-          </p>
-        </section>
-      </div>
+export default function Home() {
+  const posts = getAllPosts();
+  const latestPost = posts[0] ?? null;
+  const featuredProject = getFeaturedProject() ?? null;
+
+  return (
+    <div className="mx-auto max-w-3xl px-4 sm:px-8">
+      {/* Hero */}
+      <section className="py-20 space-y-6">
+        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl leading-tight">
+          Software engineer,{' '}
+          <span className="gradient-text">builder, and learner.</span>
+        </h1>
+        <p className="text-lg max-w-xl" style={{ color: 'var(--muted)' }}>
+          Software engineer at Apple. MS in AI at UT Austin. I build things, write about what I learn, and occasionally make noise on a flute.
+        </p>
+        <div className="flex items-center gap-6">
+          <Link
+            href="/writing"
+            className="text-sm font-medium transition-opacity hover:opacity-70"
+            style={{ color: 'var(--accent)' }}
+          >
+            Read my writing →
+          </Link>
+          <Link
+            href="/projects"
+            className="text-sm font-medium transition-opacity hover:opacity-70"
+            style={{ color: 'var(--muted)' }}
+          >
+            See projects →
+          </Link>
+        </div>
+      </section>
+
+      {/* Featured */}
+      <section className="pb-20 space-y-6">
+        <p className="text-xs font-mono tracking-widest uppercase" style={{ color: 'var(--muted)' }}>
+          Featured
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Latest post card */}
+          {latestPost ? (
+            <Link href={`/writing/${latestPost.slug}`} className="block group">
+              <Card className="h-full space-y-3">
+                <p className="text-xs font-mono" style={{ color: 'var(--muted)' }}>
+                  {new Date(latestPost.date).toLocaleDateString('en-US', {
+                    year: 'numeric',
+                    month: 'short',
+                    day: 'numeric',
+                  })}
+                </p>
+                <h2 className="font-semibold leading-snug group-hover:text-[var(--accent)] transition-colors">
+                  {latestPost.title}
+                </h2>
+                <p className="text-sm line-clamp-2" style={{ color: 'var(--muted)' }}>
+                  {latestPost.description}
+                </p>
+              </Card>
+            </Link>
+          ) : (
+            <Link href="/writing" className="block group">
+              <Card className="h-full space-y-3">
+                <p className="text-xs font-mono" style={{ color: 'var(--muted)' }}>Writing</p>
+                <h2 className="font-semibold group-hover:text-[var(--accent)] transition-colors">
+                  No posts yet
+                </h2>
+                <p className="text-sm" style={{ color: 'var(--muted)' }}>
+                  Check back soon.
+                </p>
+              </Card>
+            </Link>
+          )}
+
+          {/* Featured project card */}
+          {featuredProject ? (
+            <Link
+              href={featuredProject.url ?? featuredProject.github ?? '/projects'}
+              className="block group"
+              target={featuredProject.url ? '_blank' : undefined}
+              rel={featuredProject.url ? 'noopener noreferrer' : undefined}
+            >
+              <Card className="h-full space-y-3">
+                <p className="text-xs font-mono" style={{ color: 'var(--muted)' }}>Project</p>
+                <h2 className="font-semibold group-hover:text-[var(--accent)] transition-colors">
+                  {featuredProject.name}
+                </h2>
+                <p className="text-sm line-clamp-2" style={{ color: 'var(--muted)' }}>
+                  {featuredProject.description}
+                </p>
+                <div className="flex flex-wrap gap-2 pt-1">
+                  {featuredProject.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="text-xs font-mono px-2 py-0.5 rounded"
+                      style={{ backgroundColor: 'var(--border)', color: 'var(--muted)' }}
+                    >
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              </Card>
+            </Link>
+          ) : (
+            <Link href="/projects" className="block group">
+              <Card className="h-full space-y-3">
+                <p className="text-xs font-mono" style={{ color: 'var(--muted)' }}>Projects</p>
+                <h2 className="font-semibold group-hover:text-[var(--accent)] transition-colors">
+                  See what I&apos;ve built →
+                </h2>
+              </Card>
+            </Link>
+          )}
+        </div>
+
+        {/* About strip */}
+        <Card>
+          <div className="flex items-center justify-between gap-4">
+            <div className="space-y-1">
+              <p className="text-xs font-mono" style={{ color: 'var(--muted)' }}>About me</p>
+              <p className="text-sm">
+                Software engineer at Apple. MS in AI at UT Austin. I care about good tools, clear thinking, and building things that matter.
+              </p>
+            </div>
+            <Link
+              href="/about"
+              className="shrink-0 text-sm font-medium transition-opacity hover:opacity-70 whitespace-nowrap"
+              style={{ color: 'var(--accent)' }}
+            >
+              More →
+            </Link>
+          </div>
+        </Card>
+      </section>
     </div>
   );
 }
