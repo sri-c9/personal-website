@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { MDXRemote } from 'next-mdx-remote/rsc';
 import { getAllPosts, getPostBySlug } from '@/lib/blog';
 
@@ -18,7 +19,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const post = getPostBySlug(slug);
 
   return {
-    title: `${post.title} - Sri Chandramouli`,
+    title: `${post.title} — Sri Chandramouli`,
     description: post.description,
     openGraph: {
       title: post.title,
@@ -29,16 +30,24 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   };
 }
 
-export default async function BlogPost({ params }: PageProps) {
+export default async function WritingPost({ params }: PageProps) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
 
   return (
-    <article className="mx-auto max-w-2xl px-4 sm:px-6 lg:px-8 py-16">
-      <header className="mb-8 space-y-4">
-        <h1 className="text-4xl font-bold tracking-tight">{post.title}</h1>
+    <article className="mx-auto max-w-3xl px-4 sm:px-8 py-16">
+      <Link
+        href="/writing"
+        className="inline-flex items-center gap-1 text-sm mb-10 transition-opacity hover:opacity-70"
+        style={{ color: 'var(--muted)' }}
+      >
+        ← Writing
+      </Link>
+
+      <header className="mb-10 space-y-3">
+        <h1 className="text-3xl font-bold tracking-tight leading-tight">{post.title}</h1>
         <time
-          className="block text-sm"
+          className="block text-xs font-mono"
           style={{ color: 'var(--muted)' }}
           dateTime={post.date}
         >
