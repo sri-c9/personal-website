@@ -12,10 +12,10 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: 'Sri Chandramouli',
-  description: 'Personal website and blog',
+  description: 'Software engineer, builder, and learner.',
   openGraph: {
     title: 'Sri Chandramouli',
-    description: 'Personal website and blog',
+    description: 'Software engineer, builder, and learner.',
     type: 'website',
   },
 };
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased min-h-screen flex flex-col`}>
-        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
