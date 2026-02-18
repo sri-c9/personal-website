@@ -11,34 +11,26 @@ export default function Home() {
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-8">
       {/* Hero */}
-      <section className="py-20 space-y-6">
-        <h1 className="text-4xl font-bold tracking-tight sm:text-5xl leading-tight">
+      <section className="py-24 space-y-7">
+        <h1 className="text-5xl font-semibold tracking-tight sm:text-6xl leading-[1.1]">
           Building things that are smart, fun, and{' '}
-          <span className="gradient-text">slightly over-engineered.</span>
+          <span style={{ color: 'var(--accent)', fontStyle: 'italic' }}>slightly over-engineered.</span>
         </h1>
-        <p className="text-lg max-w-xl" style={{ color: 'var(--muted)' }}>
+        <p className="text-lg max-w-xl leading-relaxed" style={{ color: 'var(--muted)' }}>
           Software engineer at Apple, finishing my MS in AI at UT Austin. Currently building developer tools by day and tinkering with AI projects by night — fueled by too much coffee.
         </p>
         <div className="flex items-center gap-6">
-          <Link
-            href="/writing"
-            className="text-sm font-medium transition-opacity hover:opacity-70"
-            style={{ color: 'var(--accent)' }}
-          >
+          <Link href="/writing" className="link-accent text-sm font-medium">
             Read my writing →
           </Link>
-          <Link
-            href="/projects"
-            className="text-sm font-medium transition-opacity hover:opacity-70"
-            style={{ color: 'var(--muted)' }}
-          >
+          <Link href="/projects" className="link-muted text-sm font-medium">
             See projects →
           </Link>
         </div>
       </section>
 
       {/* Featured */}
-      <section className="pb-20 space-y-6">
+      <section className="pb-24 space-y-6">
         <p className="text-xs font-mono tracking-widest uppercase" style={{ color: 'var(--muted)' }}>
           Featured
         </p>
@@ -123,15 +115,11 @@ export default function Home() {
           <div className="flex items-center justify-between gap-4">
             <div className="space-y-1">
               <p className="text-xs font-mono" style={{ color: 'var(--muted)' }}>About me</p>
-              <p className="text-sm">
+              <p className="text-sm leading-relaxed">
                 I like clean tools, clear thinking, and things that are just slightly over-engineered. Also coffee.
               </p>
             </div>
-            <Link
-              href="/about"
-              className="shrink-0 text-sm font-medium transition-opacity hover:opacity-70 whitespace-nowrap"
-              style={{ color: 'var(--accent)' }}
-            >
+            <Link href="/about" className="link-accent shrink-0 text-sm font-medium whitespace-nowrap">
               More →
             </Link>
           </div>

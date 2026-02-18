@@ -15,11 +15,9 @@ export function Card({ children, className = '' }: CardProps) {
       }}
       onMouseEnter={(e) => {
         (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--accent)';
-        (e.currentTarget as HTMLDivElement).style.boxShadow = '0 0 0 1px var(--accent)';
       }}
       onMouseLeave={(e) => {
         (e.currentTarget as HTMLDivElement).style.borderColor = 'var(--border)';
-        (e.currentTarget as HTMLDivElement).style.boxShadow = 'none';
       }}
     >
       {children}

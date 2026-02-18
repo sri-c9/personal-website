@@ -13,7 +13,7 @@ export default function Writing() {
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-8 py-16">
       <div className="space-y-12">
-        <h1 className="text-3xl font-bold tracking-tight">Writing</h1>
+        <h1 className="text-4xl font-semibold tracking-tight">Writing</h1>
 
         {posts.length === 0 ? (
           <p style={{ color: 'var(--muted)' }}>No posts yet. Check back soon.</p>
@@ -23,7 +23,7 @@ export default function Writing() {
               <Link
                 key={post.slug}
                 href={`/writing/${post.slug}`}
-                className="group flex gap-8 py-6 items-start"
+                className="group flex gap-8 py-7 items-start transition-colors"
               >
                 <time
                   className="shrink-0 text-xs font-mono pt-1 w-24"
@@ -36,13 +36,13 @@ export default function Writing() {
                     day: 'numeric',
                   })}
                 </time>
-                <div className="space-y-1 min-w-0">
+                <div className="space-y-1.5 min-w-0">
                   <h2
                     className="font-semibold leading-snug group-hover:text-[var(--accent)] transition-colors"
                   >
                     {post.title}
                   </h2>
-                  <p className="text-sm" style={{ color: 'var(--muted)' }}>
+                  <p className="text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>
                     {post.description}
                   </p>
                 </div>

@@ -14,7 +14,7 @@ export default function Projects() {
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-8 py-16">
       <div className="space-y-12">
-        <h1 className="text-3xl font-bold tracking-tight">Projects</h1>
+        <h1 className="text-4xl font-semibold tracking-tight">Projects</h1>
 
         {projects.length === 0 ? (
           <p style={{ color: 'var(--muted)' }}>Coming soon.</p>
@@ -30,8 +30,7 @@ export default function Projects() {
                         href={project.github}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs font-mono transition-opacity hover:opacity-70"
-                        style={{ color: 'var(--muted)' }}
+                        className="link-muted text-xs font-mono"
                       >
                         GitHub
                       </Link>
@@ -41,8 +40,7 @@ export default function Projects() {
                         href={project.url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-xs font-mono transition-opacity hover:opacity-70"
-                        style={{ color: 'var(--accent)' }}
+                        className="link-accent text-xs font-mono"
                       >
                         Live ↗
                       </Link>
@@ -50,7 +48,7 @@ export default function Projects() {
                   </div>
                 </div>
 
-                <p className="text-sm" style={{ color: 'var(--muted)' }}>
+                <p className="text-sm leading-relaxed" style={{ color: 'var(--muted)' }}>
                   {project.description}
                 </p>
 

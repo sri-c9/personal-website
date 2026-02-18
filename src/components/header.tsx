@@ -21,39 +21,52 @@ export function Header() {
         <div className="flex h-14 items-center justify-between">
           <Link
             href="/"
-            className="text-sm font-semibold tracking-tight hover:opacity-70 transition-opacity"
+            className="text-base tracking-tight transition-colors"
+            style={{
+              fontFamily: 'var(--font-serif)',
+              fontStyle: 'italic',
+              color: 'var(--foreground)',
+            }}
+            onMouseEnter={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.color = 'var(--accent)';
+            }}
+            onMouseLeave={(e) => {
+              (e.currentTarget as HTMLAnchorElement).style.color = 'var(--foreground)';
+            }}
           >
             Sri Chandramouli
           </Link>
 
           <nav className="flex items-center gap-6">
-            <Link
-              href="/writing"
-              className="text-sm transition-colors hover:opacity-70"
-              style={{ color: 'var(--muted)' }}
-            >
-              Writing
-            </Link>
-            <Link
-              href="/projects"
-              className="text-sm transition-colors hover:opacity-70"
-              style={{ color: 'var(--muted)' }}
-            >
-              Projects
-            </Link>
-            <Link
-              href="/about"
-              className="text-sm transition-colors hover:opacity-70"
-              style={{ color: 'var(--muted)' }}
-            >
-              About
-            </Link>
+            {(['Writing', 'Projects', 'About'] as const).map((label) => (
+              <Link
+                key={label}
+                href={`/${label.toLowerCase()}`}
+                className="text-sm transition-colors"
+                style={{ color: 'var(--muted)' }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.color = 'var(--foreground)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLAnchorElement).style.color = 'var(--muted)';
+                }}
+              >
+                {label}
+              </Link>
+            ))}
 
             {mounted && (
               <button
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="rounded p-1.5 transition-colors hover:opacity-70"
+                className="rounded p-1.5 transition-colors"
                 aria-label="Toggle theme"
+                style={{ color: 'var(--muted)' }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.color = 'var(--foreground)';
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLButtonElement).style.color = 'var(--muted)';
+                }}
               >
                 {theme === 'dark' ? (
                   <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -10,17 +10,17 @@ export default function About() {
   return (
     <div className="mx-auto max-w-3xl px-4 sm:px-8 py-16">
       <div className="space-y-16">
-        <h1 className="text-3xl font-bold tracking-tight">About</h1>
+        <h1 className="text-4xl font-semibold tracking-tight">About</h1>
 
         {/* Background */}
-        <section className="space-y-4">
+        <section className="space-y-5">
           <h2
             className="text-xs font-mono tracking-widest uppercase"
-            style={{ color: 'var(--muted)' }}
+            style={{ color: 'var(--muted)', fontFamily: 'var(--font-sans)' }}
           >
             Background
           </h2>
-          <div className="space-y-4 text-[15px] leading-relaxed max-w-xl">
+          <div className="space-y-4 text-[15px] leading-[1.75] max-w-xl">
             <p>
               I&apos;m Sri — a software engineer at Apple, where I work on distributed systems,
               internal tooling, and LLM-powered apps. CS undergrad from UC Berkeley, currently
@@ -35,14 +35,14 @@ export default function About() {
         </section>
 
         {/* Currently */}
-        <section className="space-y-4">
+        <section className="space-y-5">
           <h2
             className="text-xs font-mono tracking-widest uppercase"
-            style={{ color: 'var(--muted)' }}
+            style={{ color: 'var(--muted)', fontFamily: 'var(--font-sans)' }}
           >
             Currently
           </h2>
-          <div className="space-y-4 text-[15px] leading-relaxed max-w-xl">
+          <div className="space-y-4 text-[15px] leading-[1.75] max-w-xl">
             <p>
               Building CruiseControl — a Claude Code plugin that orchestrates the full
               software dev lifecycle. It&apos;s my attempt to make AI-assisted development
@@ -57,14 +57,14 @@ export default function About() {
         </section>
 
         {/* Outside the Code */}
-        <section className="space-y-4">
+        <section className="space-y-5">
           <h2
             className="text-xs font-mono tracking-widest uppercase"
-            style={{ color: 'var(--muted)' }}
+            style={{ color: 'var(--muted)', fontFamily: 'var(--font-sans)' }}
           >
             Outside the Code
           </h2>
-          <div className="space-y-4 text-[15px] leading-relaxed max-w-xl">
+          <div className="space-y-4 text-[15px] leading-[1.75] max-w-xl">
             <p>
               I brew pour-over coffee with more precision than most of my side projects deserve.
               I boulder — badly, but consistently. I play classical flute, mostly for myself,
@@ -79,20 +79,19 @@ export default function About() {
         </section>
 
         {/* Elsewhere */}
-        <section className="space-y-4">
+        <section className="space-y-5">
           <h2
             className="text-xs font-mono tracking-widest uppercase"
-            style={{ color: 'var(--muted)' }}
+            style={{ color: 'var(--muted)', fontFamily: 'var(--font-sans)' }}
           >
             Elsewhere
           </h2>
-          <div className="flex flex-col gap-2">
+          <div className="flex flex-col gap-3">
             <Link
               href="https://github.com/sri-c9"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
-              style={{ color: 'var(--accent)' }}
+              className="link-accent inline-flex items-center gap-2 text-sm"
             >
               GitHub ↗
             </Link>
@@ -100,15 +99,13 @@ export default function About() {
               href="https://www.linkedin.com/in/srichandramouli/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
-              style={{ color: 'var(--accent)' }}
+              className="link-accent inline-flex items-center gap-2 text-sm"
             >
               LinkedIn ↗
             </Link>
             <Link
               href="mailto:sri.chandramouli9@gmail.com"
-              className="inline-flex items-center gap-2 text-sm transition-opacity hover:opacity-70"
-              style={{ color: 'var(--accent)' }}
+              className="link-accent inline-flex items-center gap-2 text-sm"
             >
               Email ↗
             </Link>
